@@ -1,6 +1,7 @@
 from typing import Optional
 import typer
 from getphoto import getphoto_proc
+from getphoto import config
 
 from getphoto import __app_name__, __version__, __author__, __year__
 
@@ -11,7 +12,7 @@ gh = getphoto_proc.PhotoGetter()
 
 
 @app.command(name='get-list')
-def get_photos_list(db_path: str = typer.Option('192.168.115.202:F:\\database\\5829_Schekinoazot_ins_2021\\5829_Schekinoazot_ins_2021.FDB',
+def get_photos_list(db_path: str = typer.Option(config.DEFAULT_DB,
                                                 '--db-path',
                                                 prompt='Please enter full path to database '
                                                              'in DBMaster format or use default')) -> None:
@@ -24,7 +25,7 @@ def get_photos_list(db_path: str = typer.Option('192.168.115.202:F:\\database\\5
 
 
 @app.command(name='get-photo')
-def get_db_path(db_path: str = typer.Option('192.168.115.202:F:\\database\\5829_Schekinoazot_ins_2021\\5829_Schekinoazot_ins_2021.FDB',
+def get_db_path(db_path: str = typer.Option(config.DEFAULT_DB,
                                             '--db-path',
                                             prompt='Please enter full path to database '
                                                          'in DBMaster format or use default')) -> None:

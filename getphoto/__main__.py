@@ -1,5 +1,3 @@
-import sys
-
 from getphoto import cli, __app_name__
 
 
